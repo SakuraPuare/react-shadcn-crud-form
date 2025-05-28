@@ -1,7 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, ReactNode, useState } from 'react';
-import { z } from 'zod';
+import React, { createContext, useContext, ReactNode } from 'react';
 import { FieldConfig } from '../types';
 
 /**
@@ -16,14 +15,8 @@ export interface FormContextConfig {
   defaultCancelText?: string;
   /** 全局是否显示取消按钮 */
   defaultShowCancelButton?: boolean;
-  /** 全局表单验证模式 */
-  validationMode?: 'onSubmit' | 'onBlur' | 'onChange' | 'onTouched' | 'all';
   /** 主题配置 */
   theme?: {
-    /** 对话框最大宽度 */
-    dialogMaxWidth?: string;
-    /** 对话框最大高度 */
-    dialogMaxHeight?: string;
     /** 表单字段间距 */
     fieldSpacing?: string;
   };
@@ -32,14 +25,7 @@ export interface FormContextConfig {
 /**
  * 表单上下文的状态接口
  */
-export interface FormContextState extends FormContextConfig {
-  /** 当前活跃的表单 ID */
-  activeFormId?: string;
-  /** 设置活跃表单 ID */
-  setActiveFormId?: (id: string | undefined) => void;
-  /** 更新配置 */
-  updateConfig?: (config: Partial<FormContextConfig>) => void;
-}
+export interface FormContextState extends FormContextConfig {}
 
 /**
  * 表单上下文
@@ -51,31 +37,17 @@ const FormContext = createContext<FormContextState | undefined>(undefined);
  */
 export interface FormProviderProps {
   children: ReactNode;
-  /** 初始配置 */
+  /** 配置 */
   config?: FormContextConfig;
 }
 
 /**
  * 表单上下文提供者组件
- * 提供全局的表单配置和状态管理
+ * 提供全局的表单配置
  */
 export function FormProvider({ children, config = {} }: FormProviderProps) {
-  const [activeFormId, setActiveFormId] = useState<string | undefined>();
-  const [currentConfig, setCurrentConfig] = useState<FormContextConfig>(config);
-
-  const updateConfig = (newConfig: Partial<FormContextConfig>) => {
-    setCurrentConfig(prev => ({ ...prev, ...newConfig }));
-  };
-
-  const contextValue: FormContextState = {
-    ...currentConfig,
-    activeFormId,
-    setActiveFormId,
-    updateConfig,
-  };
-
   return (
-    <FormContext.Provider value={contextValue}>
+    <FormContext.Provider value={config}>
       {children}
     </FormContext.Provider>
   );
@@ -94,10 +66,7 @@ export function useFormContext(): FormContextState {
       defaultSubmitText: '提交',
       defaultCancelText: '取消',
       defaultShowCancelButton: false,
-      validationMode: 'onSubmit',
       theme: {
-        dialogMaxWidth: '60%',
-        dialogMaxHeight: '80vh',
         fieldSpacing: 'space-y-4',
       },
     };
@@ -126,24 +95,13 @@ export function useFieldConfig(
 }
 
 /**
- * 表单实例管理 Hook
- * 用于在多个表单之间进行协调
+ * 表单实例管理 Hook（简化版）
+ * 用于基本的表单状态管理
  */
 export function useFormInstance(formId: string) {
-  const { activeFormId, setActiveFormId } = useFormContext();
-  
-  const isActive = activeFormId === formId;
-  
-  const activate = () => setActiveFormId?.(formId);
-  const deactivate = () => {
-    if (activeFormId === formId) {
-      setActiveFormId?.(undefined);
-    }
-  };
-  
+  // 简化实现，主要用于未来扩展
   return {
-    isActive,
-    activate,
-    deactivate,
+    formId,
+    isActive: true, // 简化为总是激活状态
   };
 } 
