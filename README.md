@@ -28,31 +28,93 @@
 - 🚀 **零配置**: 开箱即用，同时支持深度自定义
 - 📦 **轻量级**: 最小化依赖，性能优先
 
-## 📦 安装
-
-```bash
-# npm
-npm install react-shadcn-crud-form
-
-# yarn
-yarn add react-shadcn-crud-form
-
-# pnpm
-pnpm add react-shadcn-crud-form
-```
-
 ## 🛠 前置要求
 
-确保你的项目已经安装了以下依赖：
+在安装本组件库之前，请确保您的项目满足以下要求：
+
+### 基础要求
+- React 17.0.0 或更高版本
+- TypeScript 项目（推荐）
+- 已配置 Tailwind CSS
+
+### 必需的 Peer Dependencies
+
+本组件库需要以下 peer dependencies，请根据您的包管理器选择安装命令：
 
 ```bash
-npm install react react-dom react-hook-form zod @hookform/resolvers
+# 使用 yarn  
+yarn add react react-dom react-hook-form zod @hookform/resolvers @radix-ui/react-checkbox @radix-ui/react-dialog @radix-ui/react-label @radix-ui/react-select @radix-ui/react-slot class-variance-authority clsx tailwind-merge
+
+# 使用 pnpm
+pnpm add react react-dom react-hook-form zod @hookform/resolvers @radix-ui/react-checkbox @radix-ui/react-dialog @radix-ui/react-label @radix-ui/react-select @radix-ui/react-slot class-variance-authority clsx tailwind-merge
 ```
 
-以及 shadcn/ui 相关组件：
+### 可选依赖
+```bash
+# 如果需要使用图标（推荐）
+yarn add lucide-react
+```
+
+## 📦 安装
+
+### 方法一：使用 shadcn/ui 项目（推荐）
+
+如果您的项目已经使用 shadcn/ui，大部分依赖可能已经安装：
 
 ```bash
-npx shadcn-ui@latest add button dialog form input textarea select checkbox
+# 1. 确保已安装所需的 shadcn/ui 组件
+npx shadcn@latest add button dialog form input textarea select checkbox
+
+# 2. 安装组件库
+yarn add react-shadcn-crud-form
+
+# 3. 检查并安装缺失的依赖
+yarn add react-hook-form zod @hookform/resolvers
+```
+
+### 方法二：全新项目安装
+
+```bash
+# 1. 安装核心依赖
+yarn add react-hook-form zod @hookform/resolvers
+
+# 2. 安装 UI 相关依赖
+yarn add @radix-ui/react-checkbox @radix-ui/react-dialog @radix-ui/react-label @radix-ui/react-select @radix-ui/react-slot
+
+# 3. 安装工具库
+yarn add class-variance-authority clsx tailwind-merge
+
+# 4. 安装图标库（可选）
+yarn add lucide-react
+
+# 5. 最后安装组件库
+yarn add react-shadcn-crud-form
+```
+
+### 依赖版本兼容性
+
+| 依赖包 | 最低版本 | 推荐版本 | 说明 |
+|--------|----------|----------|------|
+| `react` | >=17.0.0 | ^18.0.0+ | React 核心库 |
+| `react-dom` | >=17.0.0 | ^18.0.0+ | React DOM |
+| `react-hook-form` | ^7.0.0 | ^7.45.0+ | 表单状态管理 |
+| `zod` | ^3.0.0 | ^3.20.0+ | Schema 验证 |
+| `@hookform/resolvers` | ^5.0.0 | ^5.0.0+ | React Hook Form 解析器 |
+| `class-variance-authority` | ^0.7.0 | ^0.7.0+ | CSS 类变体管理 |
+| `clsx` | ^2.0.0 | ^2.0.0+ | CSS 类名工具 |
+| `tailwind-merge` | ^2.0.0 | ^2.0.0+ | Tailwind 类名合并 |
+| `lucide-react` | ^0.400.0 | ^0.400.0+ | 图标库（可选） |
+
+## ✅ 安装验证
+
+安装完成后，您可以通过以下代码验证安装是否成功：
+
+```tsx
+import { DialogForm, FormProvider } from 'react-shadcn-crud-form';
+import { z } from 'zod';
+
+// 如果没有报错，说明安装成功
+console.log('✅ react-shadcn-crud-form 安装成功！');
 ```
 
 ## 🚀 快速开始
