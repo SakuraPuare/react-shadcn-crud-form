@@ -58,6 +58,7 @@ export function DialogForm<
   footer,
   hideFields = [],
   fieldOrder,
+  size = 'md',
 }: DialogFormProps<Schema>) {
   // 使用表单上下文获取全局配置
   const {
@@ -139,10 +140,28 @@ export function DialogForm<
     ? fieldOrder.filter((key) => fieldsToRender.includes(key)) // 过滤掉不存在于 fieldsToRender 中的字段
     : fieldsToRender; // 使用过滤后的字段列表
 
+  // 根据size设置对话框的最大宽度
+  const getSizeClass = () => {
+    switch (size) {
+      case 'sm':
+        return 'sm:max-w-md';
+      case 'md':
+        return 'sm:max-w-lg';
+      case 'lg':
+        return 'sm:max-w-2xl';
+      case 'xl':
+        return 'sm:max-w-4xl';
+      case 'full':
+        return 'sm:max-w-6xl';
+      default:
+        return 'sm:max-w-lg';
+    }
+  };
+
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent 
-        className={`sm:max-w-[${theme?.dialogMaxWidth || '60%'}] max-h-[${theme?.dialogMaxHeight || '80vh'}] overflow-y-auto`}
+        className={`${getSizeClass()} max-h-[90vh] overflow-y-auto`}
       >
         <DialogHeader>
           <DialogTitle>{title}</DialogTitle>

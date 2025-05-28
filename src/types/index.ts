@@ -100,4 +100,6 @@ export interface DialogFormProps<Schema extends z.ZodObject<z.ZodRawShape>> {
   hideFields?: string[];
   /** 指定字段的显示顺序，如果未提供，则按 Zod Schema 中的顺序显示 */
   fieldOrder?: string[];
+  /** 对话框大小，默认为 'md' */
+  size?: 'sm' | 'md' | 'lg' | 'xl' | 'full';
 }
