@@ -1,0 +1,78 @@
+{
+  "name": "react-shadcn-crud-form",
+  "version": "0.3.0",
+  "description": "一个基于 shadcn/ui 和 react-hook-form 的现代化 React CRUD 表单组件库，支持动态表单生成、类型安全和全局状态管理",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "lint": "eslint src --ext .ts,.tsx",
+    "lint:fix": "eslint src --ext .ts,.tsx --fix",
+    "type-check": "tsc --noEmit",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run clean && npm run build"
+  },
+  "keywords": [
+    "react",
+    "shadcn",
+    "shadcn-ui",
+    "crud",
+    "form",
+    "typescript",
+    "react-hook-form",
+    "zod",
+    "validation",
+    "dialog",
+    "tailwindcss",
+    "ui-components"
+  ],
+  "author": "SakuraPuare",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SakuraPuare/react-shadcn-crud-form.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SakuraPuare/react-shadcn-crud-form/issues"
+  },
+  "homepage": "https://github.com/SakuraPuare/react-shadcn-crud-form#readme",
+  "dependencies": {
+    "@hookform/resolvers": "^3.0.0"
+  },
+  "peerDependencies": {
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.0.0",
+    "lucide-react": "^0.400.0",
+    "react": ">=17.0.0",
+    "react-dom": ">=17.0.0",
+    "react-hook-form": "^7.0.0",
+    "tailwind-merge": "^2.0.0",
+    "zod": "^3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "lucide-react": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.33.0",
+    "@typescript-eslint/parser": "^8.33.0",
+    "eslint": "^8.0.0",
+    "eslint-plugin-react": "^7.37.5",
+    "lucide-react": "^0.511.0",
+    "react-hook-form": "^7.56.4",
+    "typescript": "^5.0.0",
+    "zod": "^3.25.32"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}
