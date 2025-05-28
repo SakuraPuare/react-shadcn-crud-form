@@ -1,4 +1,6 @@
-import { Textarea } from "@/components/ui/textarea";
+"use client"
+
+import { Textarea } from "../components/ui/textarea";
 import { ControllerRenderProps, FieldValues, Path } from "react-hook-form";
 import { FieldConfig } from "../types";
 

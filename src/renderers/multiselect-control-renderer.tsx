@@ -1,6 +1,8 @@
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
+"use client"
+
+import { Badge } from "../components/ui/badge";
+import { Button } from "../components/ui/button";
+import { Checkbox } from "../components/ui/checkbox";
 import { X } from "lucide-react";
 import {
   ControllerRenderProps,

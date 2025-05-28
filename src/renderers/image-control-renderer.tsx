@@ -1,3 +1,5 @@
+"use client"
+
 import React from "react";
 import { ControllerRenderProps, FieldValues, Path } from "react-hook-form";
 import { FieldConfig } from "../types";

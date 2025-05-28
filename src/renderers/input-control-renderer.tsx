@@ -1,4 +1,6 @@
-import { Input } from "@/components/ui/input";
+"use client"
+
+import { Input } from "../components/ui/input";
 import {
   ControllerRenderProps,
   FieldValues,
