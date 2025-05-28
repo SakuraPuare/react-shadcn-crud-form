@@ -1,4 +1,5 @@
-import './globals.css'; // 假设您有一个全局 CSS 文件
+import './globals.css';
+import React from 'react';
 
 export const metadata = {
   title: 'My Component Library with Next.js',
