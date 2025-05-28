@@ -1,0 +1,29 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "outDir": "./dist",
+    "jsx": "react-jsx"
+  },
+  "include": [
+    "src/components/**/*",
+    "src/context/**/*",
+    "src/hooks/**/*",
+    "src/lib/**/*",
+    "src/renderers/**/*",
+    "src/types/**/*",
+    "src/index.ts",
+    "index.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "src/app/**/*",
+    "**/*.test.*",
+    "**/*.spec.*",
+    "examples/**/*"
+  ]
+} 
