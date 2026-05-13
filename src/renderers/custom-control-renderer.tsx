@@ -29,7 +29,7 @@ export function CustomControlRenderer<
     ? fieldConfig.render({
         field,
         fieldConfig,
-        control,
+        control: control as unknown as Control<any>,
       })
     : null; // 如果没有 render 函数，则不渲染
 }
